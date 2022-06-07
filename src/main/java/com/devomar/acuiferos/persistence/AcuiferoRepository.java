@@ -46,6 +46,6 @@ public class AcuiferoRepository implements AquiferRepository {
 
     @Override
     public void delete(Long aquiferId) {
-        aquiferoCrudRepository.deleteById(aquiferId);
+
     }
 }
