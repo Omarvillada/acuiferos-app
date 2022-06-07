@@ -1,0 +1,1 @@
+web: java -jar build/libs/cuiferos-1.0.jar
