@@ -16,15 +16,21 @@ public class AcuiferoRepository implements AquiferRepository {
 
 
     @Autowired
-    private AcuiferoCrudRepository acuiferoCrudRepository;
+    private AcuiferoCrudRepository aquiferoCrudRepository;
 
     @Autowired
     private AquiferMapper mapper;
 
     @Override
     public List<Aquifer> getAll() {
-        List<Acuifero> acuiferos = (List<Acuifero>) acuiferoCrudRepository.findAll();
+        List<Acuifero> acuiferos = (List<Acuifero>) aquiferoCrudRepository.findAll();
         return mapper.toAquifers(acuiferos);
+    }
+
+    @Override
+    public Optional<Aquifer> getAquifer(Long aquiferId) {
+        return aquiferoCrudRepository.findById(aquiferId)
+                .map(acuifero -> mapper.toAquifer(acuifero));
     }
 
     @Override
@@ -34,7 +40,8 @@ public class AcuiferoRepository implements AquiferRepository {
 
     @Override
     public Aquifer save(Aquifer aquifer) {
-        return null;
+        Acuifero acuifero = mapper.toAcuifero(aquifer);
+        return mapper.toAquifer(aquiferoCrudRepository.save(acuifero));
     }
 
     @Override

@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface AquiferRepository {
 
     List<Aquifer> getAll();
+    Optional<Aquifer> getAquifer(Long aquiferId);
     Optional<List<Aquifer>> getByTypeWater(String typeWater);
     Aquifer save(Aquifer aquifer);
     void delete(Long aquiferId);
