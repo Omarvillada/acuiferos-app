@@ -1,1 +1,1 @@
-web: java -jar build/libs/cuiferos-1.0.jar
+web: java -jar build/libs/acuiferos-1.0.jar
